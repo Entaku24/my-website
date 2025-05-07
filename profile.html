@@ -5,44 +5,90 @@
   <title>プロフィール</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* セクションをカード風に */
+    /* カードベースレイアウト */
     section {
       background: #ffffff;
       margin-bottom: 30px;
       padding: 25px 30px;
       border-radius: 12px;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
-      animation: fadeIn 0.6s ease;
     }
 
-    section h2 {
-      font-size: 22px;
+    /* タブ部分のスタイル */
+    .tab-container {
+      max-width: 800px;
+      margin: 40px auto;
+    }
+
+    .tab-labels {
+      display: flex;
+      justify-content: space-around;
+      background: #0044cc;
+      border-radius: 8px 8px 0 0;
+      overflow: hidden;
+    }
+
+    .tab-labels label {
+      flex: 1;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-weight: bold;
+    }
+
+    .tab-labels label:hover {
+      background: #005de0;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    .tab-content {
+      border: 1px solid #ccc;
+      border-top: none;
+      padding: 20px;
+      background: white;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .content {
+      display: none;
+    }
+
+    #tab1:checked ~ .tabs #content1,
+    #tab2:checked ~ .tabs #content2,
+    #tab3:checked ~ .tabs #content3 {
+      display: block;
+    }
+
+    /* ヘッダーや全体 */
+    main {
+      max-width: 900px;
+      margin: 100px auto 50px;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
       color: #0044cc;
-      margin-bottom: 12px;
-      border-left: 4px solid #0044cc;
-      padding-left: 10px;
+      margin-bottom: 30px;
     }
 
     ul {
-      list-style: disc;
       padding-left: 20px;
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      margin: 10px 0;
-      border-radius: 10px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-    }
-
     @media screen and (max-width: 768px) {
-      section {
-        padding: 20px;
+      .tab-labels {
+        flex-direction: column;
       }
 
-      section h2 {
-        font-size: 18px;
+      .tab-labels label {
+        padding: 12px;
+        font-size: 16px;
       }
     }
   </style>
@@ -55,37 +101,46 @@
   </nav>
 
   <main>
-    <h1 style="text-align:center; color:#0044cc; margin-bottom:40px;">私について</h1>
+    <h1>私について</h1>
 
-    <section>
-      <h2>基本情報</h2>
-      <p>こんにちは！東京学芸大学に通う大学3年生です。<br>
-         このページでは、僕のことを少し詳しく紹介します。
-      </p>
-    </section>
+    <!-- タブ切り替え -->
+    <div class="tab-container">
+      <input type="radio" name="tabs" id="tab1" checked>
+      <input type="radio" name="tabs" id="tab2">
+      <input type="radio" name="tabs" id="tab3">
 
-    <section>
-      <h2>大学で取り組んでいること</h2>
-      <p>大学では教育とICTをテーマにした研究に取り組んでいます。特に、<strong>数学教育</strong>に情報技術をどう活かせるか、<br>
-         生徒が自ら考える力を引き出す教材の設計に興味があります。</p>
-      <p>最近では、<em>Shinyアプリ</em>や<em>3Dプリンタを用いた教材開発</em>などにも挑戦中です。</p>
-    </section>
+      <div class="tab-labels">
+        <label for="tab1">プロフィール</label>
+        <label for="tab2">研究・学び</label>
+        <label for="tab3">将来の夢</label>
+      </div>
 
-    <section>
-      <h2>将来の夢</h2>
-      <p>将来は、中学校の数学教師として、生徒の「わからない」が「わかった！」に変わる瞬間を支えたいと思っています。<br>
-         授業を通して「考えるって楽しい」と感じてもらえるような工夫を、日々研究しています。</p>
-    </section>
+      <div class="tabs">
+        <div class="tab-content" id="content1">
+          <h2>プロフィール</h2>
+          <p>東京学芸大学 教育学部 情報系に所属する大学3年生です。友人や先生と協力しながら学び合うことが好きです。</p>
+          <ul>
+            <li>趣味：カフェ巡り、音楽ゲーム、散歩</li>
+            <li>特技：黒板の文字をまっすぐ書ける</li>
+            <li>最近ハマっていること：AIを使った授業づくり</li>
+          </ul>
+        </div>
 
-    <section>
-      <h2>ちょっとした一面</h2>
-      <ul>
-        <li>趣味：カフェ巡り、音楽ゲーム、散歩</li>
-        <li>特技：黒板の文字をまっすぐ書ける</li>
-        <li>最近ハマっていること：AIを使った授業づくり</li>
-      </ul>
-    </section>
+        <div class="tab-content" id="content2">
+          <h2>研究・学び</h2>
+          <p>現在は、ICTを活用した数学教育に関心を持ち、Shinyアプリや3Dプリンタを用いた教材開発に取り組んでいます。</p>
+          <p>教育現場で使いやすいデザインと、学習者の主体性を育む内容を両立させる方法を日々模索しています。</p>
+        </div>
 
+        <div class="tab-content" id="content3">
+          <h2>将来の夢</h2>
+          <p>中学校の数学の先生になることを目指しています。<br>
+             「わからない」が「わかった！」に変わる瞬間の喜びを一緒に体験できる、そんな教師になりたいです。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 写真 -->
     <section>
       <h2>研究や活動の写真</h2>
       <img src="img/project1.jpg" alt="研究の様子1">
