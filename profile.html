@@ -4,6 +4,48 @@
   <meta charset="UTF-8">
   <title>プロフィール</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* セクションをカード風に */
+    section {
+      background: #ffffff;
+      margin-bottom: 30px;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+      animation: fadeIn 0.6s ease;
+    }
+
+    section h2 {
+      font-size: 22px;
+      color: #0044cc;
+      margin-bottom: 12px;
+      border-left: 4px solid #0044cc;
+      padding-left: 10px;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 10px 0;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    @media screen and (max-width: 768px) {
+      section {
+        padding: 20px;
+      }
+
+      section h2 {
+        font-size: 18px;
+      }
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -13,7 +55,7 @@
   </nav>
 
   <main>
-    <h1>私について</h1>
+    <h1 style="text-align:center; color:#0044cc; margin-bottom:40px;">私について</h1>
 
     <section>
       <h2>基本情報</h2>
@@ -24,18 +66,15 @@
 
     <section>
       <h2>大学で取り組んでいること</h2>
-      <p>現在、大学では教育に関する研究に取り組んでいます。特に、数学教育にICT（情報技術）を取り入れることや、<br>
-         生徒が自分で考えながら学べるような教材の設計に興味があります。<br>
-         最近では、Shinyアプリや3Dプリンタを活用した教材開発など、ちょっとマニアックなことも楽しんでいます。
-      </p>
+      <p>大学では教育とICTをテーマにした研究に取り組んでいます。特に、<strong>数学教育</strong>に情報技術をどう活かせるか、<br>
+         生徒が自ら考える力を引き出す教材の設計に興味があります。</p>
+      <p>最近では、<em>Shinyアプリ</em>や<em>3Dプリンタを用いた教材開発</em>などにも挑戦中です。</p>
     </section>
 
     <section>
       <h2>将来の夢</h2>
-      <p>将来は、中学校の数学の先生になることを目指しています。<br>
-         「わからない」が「わかる！」に変わる瞬間の面白さを、生徒たちと共有したいと思っています。<br>
-         教えるだけでなく、一緒に学びながら成長できる先生になりたいです。
-      </p>
+      <p>将来は、中学校の数学教師として、生徒の「わからない」が「わかった！」に変わる瞬間を支えたいと思っています。<br>
+         授業を通して「考えるって楽しい」と感じてもらえるような工夫を、日々研究しています。</p>
     </section>
 
     <section>
@@ -52,7 +91,6 @@
       <img src="img/project1.jpg" alt="研究の様子1">
       <img src="img/project2.jpg" alt="研究の様子2">
     </section>
-
   </main>
 </body>
 </html>
