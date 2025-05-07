@@ -5,10 +5,30 @@
   <title>プロフィール</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* レイアウト共通 */
+    body {
+      font-family: "Yu Gothic", sans-serif;
+      background: #f2f5f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background: #0044cc;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
     main {
       max-width: 900px;
-      margin: 100px auto 50px;
+      margin: 100px auto;
       padding: 20px;
     }
 
@@ -18,30 +38,15 @@
       margin-bottom: 30px;
     }
 
-    ul {
-      padding-left: 20px;
+    .tabs {
+      margin-top: 20px;
     }
 
-    section {
-      background: #ffffff;
-      margin-bottom: 30px;
-      padding: 25px 30px;
-      border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
-    }
-
-    /* タブのスタイル */
-    .tab-container {
-      max-width: 800px;
-      margin: 40px auto;
-    }
-
+    /* --- タブのラベル --- */
     .tab-labels {
       display: flex;
-      justify-content: space-around;
       background: #0044cc;
       border-radius: 8px 8px 0 0;
-      overflow: hidden;
     }
 
     .tab-labels label {
@@ -50,8 +55,8 @@
       text-align: center;
       padding: 15px 0;
       cursor: pointer;
-      transition: background 0.3s;
       font-weight: bold;
+      transition: background 0.3s;
     }
 
     .tab-labels label:hover {
@@ -62,6 +67,7 @@
       display: none;
     }
 
+    /* --- タブの中身 --- */
     .tab-content {
       display: none;
       padding: 20px;
@@ -69,7 +75,7 @@
       border: 1px solid #ccc;
       border-top: none;
       border-radius: 0 0 8px 8px;
-      animation: fadeIn 0.6s ease;
+      animation: fadeIn 0.5s ease;
     }
 
     #tab1:checked ~ .tabs #content1,
@@ -78,40 +84,15 @@
       display: block;
     }
 
-    /* フェードインアニメーション */
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* 画像 */
-    img {
-      max-width: 100%;
-      height: auto;
-      margin: 10px 0;
-      border-radius: 10px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    /* レスポンシブ対応 */
+    /* レスポンシブ */
     @media screen and (max-width: 768px) {
       .tab-labels {
         flex-direction: column;
-      }
-
-      .tab-labels label {
-        padding: 12px;
-        font-size: 16px;
-      }
-
-      section {
-        padding: 20px;
       }
     }
   </style>
@@ -126,49 +107,37 @@
   <main>
     <h1>私について</h1>
 
-    <!-- タブ切り替え -->
-    <div class="tab-container">
-      <input type="radio" name="tabs" id="tab1" checked>
-      <input type="radio" name="tabs" id="tab2">
-      <input type="radio" name="tabs" id="tab3">
+    <!-- ラジオボタン（順番が重要） -->
+    <input type="radio" name="tab" id="tab1" checked>
+    <input type="radio" name="tab" id="tab2">
+    <input type="radio" name="tab" id="tab3">
 
+    <div class="tabs">
       <div class="tab-labels">
         <label for="tab1">プロフィール</label>
         <label for="tab2">研究・学び</label>
         <label for="tab3">将来の夢</label>
       </div>
 
-      <div class="tabs">
-        <div class="tab-content" id="content1">
-          <h2>プロフィール</h2>
-          <p>東京学芸大学 教育学部 情報系に所属する大学3年生です。友人や先生と協力しながら学び合うことが好きです。</p>
-          <ul>
-            <li>趣味：カフェ巡り、音楽ゲーム、散歩</li>
-            <li>特技：黒板の文字をまっすぐ書ける</li>
-            <li>最近ハマっていること：AIを使った授業づくり</li>
-          </ul>
-        </div>
+      <div class="tab-content" id="content1">
+        <h2>プロフィール</h2>
+        <p>東京学芸大学の大学3年生です。教育学部で情報やICTを中心に学びながら、仲間と協力して研究・制作に取り組んでいます。</p>
+        <ul>
+          <li>趣味：カフェ巡り、音楽ゲーム、散歩</li>
+          <li>特技：黒板の文字をまっすぐ書ける</li>
+        </ul>
+      </div>
 
-        <div class="tab-content" id="content2">
-          <h2>研究・学び</h2>
-          <p>現在は、ICTを活用した数学教育に関心を持ち、Shinyアプリや3Dプリンタを用いた教材開発に取り組んでいます。</p>
-          <p>教育現場で使いやすいデザインと、学習者の主体性を育む内容を両立させる方法を日々模索しています。</p>
-        </div>
+      <div class="tab-content" id="content2">
+        <h2>研究・学び</h2>
+        <p>数学教育×ICTをテーマに、Shinyアプリや3Dプリンタを使った教材を開発中。どうすれば生徒が自分で学びたくなるか？を探求しています。</p>
+      </div>
 
-        <div class="tab-content" id="content3">
-          <h2>将来の夢</h2>
-          <p>中学校の数学の先生になることを目指しています。<br>
-             「わからない」が「わかった！」に変わる瞬間の喜びを一緒に体験できる、そんな教師になりたいです。</p>
-        </div>
+      <div class="tab-content" id="content3">
+        <h2>将来の夢</h2>
+        <p>中学校の数学の先生を目指しています。「わからない」を「わかった！」に変える面白さを伝えられるような授業をつくりたいです。</p>
       </div>
     </div>
-
-    <!-- 写真 -->
-    <section>
-      <h2>研究や活動の写真</h2>
-      <img src="img/project1.jpg" alt="研究の様子1">
-      <img src="img/project2.jpg" alt="研究の様子2">
-    </section>
   </main>
 </body>
 </html>
