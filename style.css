@@ -1,26 +1,36 @@
-/* 全体共通 */
-body {
-  font-family: "Yu Gothic", sans-serif;
+/* リセットと基本設定 */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #f3f7fa;
-  color: #333;
 }
 
-/* ナビゲーションバー */
+body {
+  font-family: "Yu Gothic", sans-serif;
+  background: #f2f5f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ナビゲーション（固定） */
 nav {
-  background-color: #0044cc;
-  padding: 15px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #0066cc;
+  padding: 15px 0;
   text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
 nav a {
   color: white;
-  text-decoration: none;
   margin: 0 20px;
+  text-decoration: none;
   font-weight: bold;
   font-size: 18px;
-  transition: color 0.3s, border-bottom 0.3s;
+  transition: 0.3s;
 }
 
 nav a:hover {
@@ -28,35 +38,40 @@ nav a:hover {
   border-bottom: 2px solid #ffd700;
 }
 
-/* メインコンテンツ */
+/* メイン領域 */
 main {
-  max-width: 800px;
-  margin: 50px auto;
+  max-width: 900px;
+  margin: 100px auto 50px;
+  padding: 30px;
   background: white;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 1s ease-in;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.8s ease;
 }
 
+/* コンテンツ内 */
 h1 {
-  color: #0044cc;
   font-size: 32px;
+  color: #0044aa;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 p {
-  line-height: 1.8;
   font-size: 16px;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 /* 画像 */
 img {
-  max-width: 100%;
+  display: block;
+  max-width: 200px;
+  margin: 20px auto;
   border-radius: 10px;
 }
 
-/* フェードインアニメーション */
+/* アニメーション */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -67,21 +82,16 @@ img {
     transform: translateY(0);
   }
 }
-/* ✅ スマホ・タブレット画面対応 */
-@media screen and (max-width: 768px) {
-  nav {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-  }
 
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
   nav a {
+    display: block;
     margin: 10px 0;
-    font-size: 16px;
   }
 
   main {
-    margin: 20px 10px;
+    margin: 120px 15px 30px;
     padding: 20px;
   }
 
@@ -91,10 +101,5 @@ img {
 
   p {
     font-size: 14px;
-  }
-
-  img {
-    width: 100%;
-    height: auto;
   }
 }
