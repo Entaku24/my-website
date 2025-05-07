@@ -67,3 +67,34 @@ img {
     transform: translateY(0);
   }
 }
+/* ✅ スマホ・タブレット画面対応 */
+@media screen and (max-width: 768px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  nav a {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+
+  main {
+    margin: 20px 10px;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
